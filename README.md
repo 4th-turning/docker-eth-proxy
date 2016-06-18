@@ -7,7 +7,7 @@ As a minimum, specify `WALLET`, `POOL_HOST`, `POOL_PORT` to your docker run comm
 docker run --rm -p 8080:8080 \
 -e WALLET=0x64f15ae505a1ea29509d966761dcc9681a6c0af5 \
 -e POOL_HOST=us-east1.nanopool.org \
--e POOL_PORT=9999 yuriba/docker-eth-proxy
+-e POOL_PORT=9999 yuriba/eth-proxy
 ```
 Once launched, you can start your miner, in case of ethminer:
 ```
