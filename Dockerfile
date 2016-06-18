@@ -16,4 +16,4 @@ COPY entrypoint.sh $TARGET_DIR
 COPY eth-proxy.conf $TARGET_DIR
 
 EXPOSE 8080
-CMD /tmp/eth-proxy/entrypoint.sh
+CMD $TARGET_DIR/entrypoint.sh
