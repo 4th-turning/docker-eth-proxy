@@ -8,11 +8,12 @@ WORKDIR /tmp
 RUN echo "Download eth-proxy version $ETH_PROXY_VER"
 RUN curl -L -o eth-proxy.zip https://github.com/Atrides/eth-proxy/archive/$ETH_PROXY_VER.zip
 
-RUN unzip eth-proxy.zip
-WORKDIR /tmp/eth-proxy/
+RUN unzip eth-proxy.zip && rm eth-proxy.zip
+ENV TARGET_DIR /tmp/eth-proxy-$ETH_PROXY_VER
+WORKDIR $TARGET_DIR
 
-COPY entrypoint.sh /tmp/eth-proxy/
-COPY eth-proxy.conf /tmp/eth-proxy/
+COPY entrypoint.sh $TARGET_DIR
+COPY eth-proxy.conf $TARGET_DIR
 
 EXPOSE 8080
 CMD /tmp/eth-proxy/entrypoint.sh
