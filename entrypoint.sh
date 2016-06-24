@@ -2,8 +2,8 @@
 set -e
 
 if [ -z ${WALLET+x} ]; then echo "Please specify WALLET " && exit; else sed -i 's/.*WALLET.*/WALLET=\"'"$WALLET"'\"/' eth-proxy.conf; fi
-if [ -z ${POOL_HOST+x} ]; then echo "Please specify POOL_HOST " && exit; else sed -i 's/.*POOL_HOST.*/POOL_HOST=\"'"$POOL_HOST"'\"/' eth-proxy.conf; fi
-if [ -z ${POOL_PORT+x} ]; then echo "Please specify POOL_PORT " && exit; else sed -i 's/.*POOL_PORT.*/POOL_PORT='"$POOL_PORT"'/' eth-proxy.conf; fi
+if [ -z ${POOL_HOST+x} ]; then echo "Please specify POOL_HOST " && exit; else sed -i 's/.*POOL_HOST[[:space:]]\{0,\}=.*/POOL_HOST=\"'"$POOL_HOST"'\"/' eth-proxy.conf; fi
+if [ -z ${POOL_PORT+x} ]; then echo "Please specify POOL_PORT " && exit; else sed -i 's/.*POOL_PORT[[:space:]]\{0,\}=.*/POOL_PORT='"$POOL_PORT"'\"/' eth-proxy.conf; fi
 if [ ${DEBUG+x} ]; then sed -i 's/.*DEBUG.*/DEBUG='"$DEBUG"'/' eth-proxy.conf; fi
 if [ ${COIN+x} ]; then sed -i 's/.*COIN.*/COIN=\"'"$COIN"'\"/' eth-proxy.conf; fi
 
